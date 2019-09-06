@@ -7,7 +7,9 @@ import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
-import { ContasComponent } from './contas/contas.component'
+import { ContasComponent } from './contas/contas.component';
+import { ContaComponent } from './contas/conta/conta.component'
+import { ContasService } from './contas/contas.service';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,16 @@ import { ContasComponent } from './contas/contas.component'
     HomeComponent,
     SobreComponent,
     CabecalhoComponent,
-    ContasComponent
+    ContasComponent,
+    ContaComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    ContasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

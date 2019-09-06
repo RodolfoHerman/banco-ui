@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Conta } from './conta/conta.model';
+import { ContasService } from './contas.service';
 
 @Component({
   selector: 'cb-contas',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContasComponent implements OnInit {
 
-  constructor() { }
+  contas: Array<Conta> = [];
+
+  constructor(private contasService: ContasService) { }
 
   ngOnInit() {
+
+    this.contas = this.contasService.buscarContas();
   }
 
 }
