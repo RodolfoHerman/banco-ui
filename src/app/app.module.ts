@@ -6,14 +6,16 @@ import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RouterModule } from '@angular/router';
-import { ROUTES } from './app.routes'
+import { ROUTES } from './app.routes';
+import { ContasComponent } from './contas/contas.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SobreComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    ContasComponent
   ],
   imports: [
     BrowserModule,

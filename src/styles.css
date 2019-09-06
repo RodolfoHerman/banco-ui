@@ -13,3 +13,17 @@
     margin-bottom: 60px;
     font-size: 30px;
 }
+
+.conteudo {
+    margin-top: 20px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none !important;
+}
