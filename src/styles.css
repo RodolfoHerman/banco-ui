@@ -27,3 +27,7 @@
 a {
     text-decoration: none !important;
 }
+
+#valor:focus {
+    background-color: bisque;
+}

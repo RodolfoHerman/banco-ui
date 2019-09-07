@@ -1,0 +1,89 @@
+<div class="card bg-dark text-white" style="padding: 1em;">
+
+    <div class="card-img text-center">
+        <i class="fas fa-comment-dollar fa-10x" style="color: #17a2b8;"></i>
+    </div>
+
+    <div class="card-img-overlay">
+
+        <div class="card-header" style="border-bottom: 1px solid #FFF; padding: 1em">
+
+            <h5 class="card-title text-uppercase" style="padding-bottom: 20px">
+                <span class="float-left">Conta Bancária</span>
+                <span class="float-right"><i class="fas fa-id-card fa-lg"></i> {{ 1 }}</span>
+            </h5>
+        </div>
+
+        <div class="card-content" style="margin-top: 10px">
+
+            <dl>
+                <dt class="card-text">Saldo</dt>
+                <dd class="card-text">R$ 50000000</dd>
+            </dl>
+
+            <dl>
+                <dt class="card-text">Data Criação</dt>
+                <dd class="card-text">{{ '2019-09-06' | date: 'dd/MM/yyyy' }} - 15:25:32</dd>
+            </dl>
+
+            <dl>
+                <dt class="card-text">Data Atualização</dt>
+                <dd class="card-text">{{ '2019-09-06' | date: 'dd/MM/yyyy' }} - 21:22:22</dd>
+            </dl>
+
+        </div>
+
+    </div>
+</div>
+
+{{ form.valid }}
+{{ form.value | json }}
+
+<form novalidate #form="ngForm" class="bg-dark text-white" style="margin-top: 30px; padding: 1em; border-radius: .25rem;">
+
+    <h3 class="text-uppercase text-white">
+        Operação Bancária
+    </h3>
+
+    <div class="form-group">
+        <label for="valor">Valor desejado:</label>
+        <input type="number" class="form-control is-valid" #iptValor="ngModel" required name="valor" id="valor" ngModel
+            placeholder="R$"
+            [class.is-valid]="iptValor.valid && (iptValor.dirty || iptValor.touched)"    
+            [class.is-invalid]="!iptValor.valid && (iptValor.dirty || iptValor.touched)"    
+        >
+        <div *ngIf="iptValor.valid && (iptValor.dirty || iptValor.touched)" class="valid-feedback">Ok!</div>
+        <div *ngIf="!iptValor.valid && (iptValor.dirty || iptValor.touched)" class="invalid-feedback">Campo obrigatório!</div>
+    </div>
+
+    <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio1">Depósito</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio2">Saque</label>
+    </div>
+
+
+    <button [disabled]="!form.valid" style="margin-top: 20px;" class="btn btn-primary">Enviar</button>
+
+
+</form>
+
+<!-- <div class="card">
+    <h5 class="card-header">Destaque</h5>
+    <div class="card-body">
+        <h5 class="card-title">Título especial</h5>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+        <a href="#" class="btn btn-primary">Visitar</a>
+    </div>
+</div> -->

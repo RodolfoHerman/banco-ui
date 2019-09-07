@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -10,6 +11,7 @@ import { ROUTES } from './app.routes';
 import { ContasComponent } from './contas/contas.component';
 import { ContaComponent } from './contas/conta/conta.component'
 import { ContasService } from './contas/contas.service';
+import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,12 @@ import { ContasService } from './contas/contas.service';
     SobreComponent,
     CabecalhoComponent,
     ContasComponent,
-    ContaComponent
+    ContaComponent,
+    ContaOperacaoComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
