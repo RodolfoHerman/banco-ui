@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Conta } from '../contas/conta/conta.model';
+import { ContasService } from '../contas/contas.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'cb-conta-operacao',
@@ -6,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContaOperacaoComponent implements OnInit {
 
-  constructor() { }
+  conta: Conta;
+
+  constructor(
+    private contasService: ContasService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+
+    this.conta = this.contasService.buscarContaPeloId(this.route.snapshot.params['id']);
   }
 
 }

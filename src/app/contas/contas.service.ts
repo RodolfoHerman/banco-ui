@@ -45,4 +45,9 @@ export class ContasService {
 
         return this.contas;
     }
+
+    buscarContaPeloId(id: number): Conta {
+
+        return this.contas.find(conta => conta.id == id);
+    }
 }

@@ -12,6 +12,7 @@ import { ContasComponent } from './contas/contas.component';
 import { ContaComponent } from './contas/conta/conta.component'
 import { ContasService } from './contas/contas.service';
 import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.component';
+import { ContaDetalheComponent } from './conta-detalhe/conta-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.componen
     CabecalhoComponent,
     ContasComponent,
     ContaComponent,
-    ContaOperacaoComponent
+    ContaOperacaoComponent,
+    ContaDetalheComponent
   ],
   imports: [
     BrowserModule,

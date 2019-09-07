@@ -1,0 +1,37 @@
+<div class="card bg-dark text-white" style="padding: 1em;">
+
+    <div class="card-img text-center">
+        <i class="fas fa-comment-dollar fa-10x" style="color: #17a2b8;"></i>
+    </div>
+
+    <div class="card-img-overlay">
+
+        <div class="card-header" style="border-bottom: 1px solid #FFF; padding: 1em">
+
+            <h5 class="card-title text-uppercase" style="padding-bottom: 20px">
+                <span class="float-left">Conta Bancária</span>
+                <span class="float-right"><i class="fas fa-id-card fa-lg"></i> {{ conta?.id }}</span>
+            </h5>
+        </div>
+
+        <div class="card-content" style="margin-top: 10px">
+
+            <dl>
+                <dt class="card-text">Saldo</dt>
+                <dd class="card-text">{{ conta?.saldo }}</dd>
+            </dl>
+
+            <dl>
+                <dt class="card-text">Data Criação</dt>
+                <dd class="card-text">{{ conta?.dataCriacao | date: 'dd/MM/yyyy' }} - 15:25:32</dd>
+            </dl>
+
+            <dl>
+                <dt class="card-text">Data Atualização</dt>
+                <dd class="card-text">{{ conta?.dataAtualizacao | date: 'dd/MM/yyyy' }} - 21:22:22</dd>
+            </dl>
+
+        </div>
+
+    </div>
+</div>
