@@ -12,7 +12,7 @@
 
                 <dl>
                     <dt class="card-title">Saldo</dt>
-                    <dd class="card-text">R$ {{ conta.saldo }}</dd>
+                    <dd class="card-text">{{ conta.saldo | currency: 'BRL': 'symbol'}}</dd>
                 </dl>
             </div>
         </div>

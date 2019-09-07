@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import locatePt from '@angular/common/locales/pt';
+
+registerLocaleData(locatePt, 'pt');
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +16,7 @@ import { ContaComponent } from './contas/conta/conta.component'
 import { ContasService } from './contas/contas.service';
 import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.component';
 import { ContaDetalheComponent } from './conta-detalhe/conta-detalhe.component';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { ContaDetalheComponent } from './conta-detalhe/conta-detalhe.component';
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    ContasService
+    ContasService,
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
   bootstrap: [AppComponent]
 })
