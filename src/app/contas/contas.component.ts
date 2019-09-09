@@ -14,7 +14,7 @@ export class ContasComponent implements OnInit {
 
   ngOnInit() {
 
-    this.contas = this.contasService.buscarContas();
+    this.contasService.buscarContas().subscribe(response => this.contas = response.data);
   }
 
 }

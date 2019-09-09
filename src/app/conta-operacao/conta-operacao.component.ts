@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../contas/conta/conta.model';
 import { ContasService } from '../contas/contas.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RadioOption } from '../componentes/radio/radio-option.model';
 
 @Component({
@@ -19,12 +19,13 @@ export class ContaOperacaoComponent implements OnInit {
 
   constructor(
     private contasService: ContasService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
 
-    this.conta = this.contasService.buscarContaPeloId(this.route.snapshot.params['id']);
+    this.contasService.buscarContaPeloId(this.route.snapshot.params['id']).subscribe(response => this.conta = response.data);
   }
 
   realizarOperacao(form: any): void {
@@ -32,7 +33,7 @@ export class ContaOperacaoComponent implements OnInit {
     this.conta.valor    = form.valor;
     this.conta.deposito = form.optionOperacao == "DEP" ? true : false;
 
-    console.log(this.contasService.atualizarConta(this.conta));
+    this.contasService.atualizarConta(this.conta).subscribe(dados => this.router.navigate(['/contas']));
   }
   
 }

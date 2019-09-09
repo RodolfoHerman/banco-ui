@@ -1,72 +1,30 @@
 import { Conta } from './conta/conta.model';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BANCO_API } from '../app.api';
+import { Response } from './response.model';
 
+@Injectable()
 export class ContasService {
 
-    private contas: Array<Conta> = [
-        {
-            id: 1,
-            saldo: 300.00,
-            deposito: null,
-            valor: null,
-            dataCriacao: '2019-09-05',
-            dataAtualizacao: '2019-09-06'
-        },
-        {
-            id: 2,
-            saldo: 150.00,
-            deposito: null,
-            valor: null,
-            dataCriacao: '2019-09-03',
-            dataAtualizacao: '2019-09-04'
-        },
-        {
-            id: 3,
-            saldo: 255.00,
-            deposito: null,
-            valor: null,
-            dataCriacao: '2019-09-01',
-            dataAtualizacao: '2019-09-03'
-        },
-        {
-            id: 4,
-            saldo: 50000.00,
-            deposito: null,
-            valor: null,
-            dataCriacao: '2019-09-04',
-            dataAtualizacao: '2019-09-06'
-        }
-    ];
-
-    constructor() { }
+    constructor(
+        private http: HttpClient
+    ) { }
 
 
-    buscarContas(): Array<Conta> {
+    buscarContas(): Observable<Response<Array<Conta>>> {
 
-        return this.contas;
+        return this.http.get<Response<Array<Conta>>>(`${BANCO_API}/contas`);
     }
 
-    buscarContaPeloId(id: number): Conta {
+    buscarContaPeloId(id: number): Observable<Response<Conta>> {
 
-        return this.contas.find(conta => conta.id == id);
+        return this.http.get<Response<Conta>>(`${BANCO_API}/contas/${id}`);
     }
 
-    atualizarConta(conta: Conta): Conta {
+    atualizarConta(conta: Conta): Observable<Response<Conta>> {
 
-        let temp = this.contas.find(c => conta.id == c.id);
-        
-        temp.deposito = conta.deposito;
-        temp.valor    = conta.valor;
-
-        if(temp.deposito) {
-
-            temp.saldo += temp.valor;
-
-        } else {
-
-            temp.saldo -= temp.valor;
-        }
-
-        return temp;
+        return this.http.put<Response<Conta>>(`${BANCO_API}/contas/${conta.id}`, conta);
     }
 }

@@ -18,6 +18,7 @@ import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.componen
 import { ContaDetalheComponent } from './conta-detalhe/conta-detalhe.component';
 import { registerLocaleData } from '@angular/common';
 import { RadioComponent } from './componentes/radio/radio.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RadioComponent } from './componentes/radio/radio.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
