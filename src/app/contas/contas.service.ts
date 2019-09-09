@@ -50,4 +50,23 @@ export class ContasService {
 
         return this.contas.find(conta => conta.id == id);
     }
+
+    atualizarConta(conta: Conta): Conta {
+
+        let temp = this.contas.find(c => conta.id == c.id);
+        
+        temp.deposito = conta.deposito;
+        temp.valor    = conta.valor;
+
+        if(temp.deposito) {
+
+            temp.saldo += temp.valor;
+
+        } else {
+
+            temp.saldo -= temp.valor;
+        }
+
+        return temp;
+    }
 }

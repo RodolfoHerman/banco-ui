@@ -22,6 +22,6 @@
 
     <cb-radio required name="optionOperacao" ngModel [options]="options"></cb-radio>
 
-    <button [disabled]="!form.valid" style="margin-top: 20px;" class="btn btn-primary">Enviar</button>
+    <button (click)="realizarOperacao(form.value)" [disabled]="!form.valid" style="margin-top: 20px;" class="btn btn-primary">Enviar</button>
 
 </form>

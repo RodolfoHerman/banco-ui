@@ -27,4 +27,12 @@ export class ContaOperacaoComponent implements OnInit {
     this.conta = this.contasService.buscarContaPeloId(this.route.snapshot.params['id']);
   }
 
+  realizarOperacao(form: any): void {
+
+    this.conta.valor    = form.valor;
+    this.conta.deposito = form.optionOperacao == "DEP" ? true : false;
+
+    console.log(this.contasService.atualizarConta(this.conta));
+  }
+  
 }
