@@ -20,17 +20,8 @@
         <div *ngIf="!iptValor.valid && (iptValor.dirty || iptValor.touched)" class="invalid-feedback">Campo obrigatório!</div>
     </div>
 
-    <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio1">Depósito</label>
-    </div>
-    <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio2">Saque</label>
-    </div>
-
+    <cb-radio required name="optionOperacao" ngModel [options]="options"></cb-radio>
 
     <button [disabled]="!form.valid" style="margin-top: 20px;" class="btn btn-primary">Enviar</button>
-
 
 </form>

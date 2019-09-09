@@ -1,0 +1,4 @@
+<div *ngFor="let option of options" class="custom-control custom-radio">
+    <input (click)="setValor(option.valor)" [checked]="option.valor == valor" type="radio" [id]="option.id" class="custom-control-input">
+    <label class="custom-control-label" [for]="option.id">{{ option.rotulo }}</label>
+</div>

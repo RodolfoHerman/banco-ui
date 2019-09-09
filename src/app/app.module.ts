@@ -17,6 +17,7 @@ import { ContasService } from './contas/contas.service';
 import { ContaOperacaoComponent } from './conta-operacao/conta-operacao.component';
 import { ContaDetalheComponent } from './conta-detalhe/conta-detalhe.component';
 import { registerLocaleData } from '@angular/common';
+import { RadioComponent } from './componentes/radio/radio.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { registerLocaleData } from '@angular/common';
     ContasComponent,
     ContaComponent,
     ContaOperacaoComponent,
-    ContaDetalheComponent
+    ContaDetalheComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
