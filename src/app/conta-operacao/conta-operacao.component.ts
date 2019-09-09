@@ -33,7 +33,7 @@ export class ContaOperacaoComponent implements OnInit {
     this.conta.valor    = form.valor;
     this.conta.deposito = form.optionOperacao == "DEP" ? true : false;
 
-    this.contasService.atualizarConta(this.conta).subscribe(dados => this.router.navigate(['/contas']));
+    this.contasService.atualizarConta(this.conta).subscribe(dados => this.router.navigate(['/contas-sucesso']));
   }
   
 }
